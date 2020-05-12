@@ -6,8 +6,9 @@ import React from 'react'
 import Coder from './Coder'
 import "prismjs/themes/prism-nord.css";
 
+
 const App = () => {
-  return <div className="container">
+  return <div className="app-container">
       <Coder />
   </div>
 }
