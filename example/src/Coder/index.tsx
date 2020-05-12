@@ -1,5 +1,6 @@
 import React from "react"
-import Prism from "prismjs"
+import Highliter from "./Highliter";
+
 const code = `
 const foo = 'foo';
 const bar = 'bar';
@@ -7,18 +8,18 @@ console.log(foo + bar);
 `.trim()
 
 export default class index extends React.Component {
-  componentDidMount() {
-    // You can call the Prism.js API here
-    // Use setTimeout to push onto callback queue so it runs after the DOM is updated
-    Prism.highlightAll()
-  }
+  
   render() {
-    return (
-      <pre className="line-numbers">
-        <code className="language-js">
-          {code}
-        </code>
-      </pre>
-    )
+    
+    return (<div className="container">
+      <div className="numbers">
+
+      </div>
+      <div className="code">
+        <Highliter code={code} />
+      </div>
+    </div>)
   }
 }
+
+

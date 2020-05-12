@@ -9,7 +9,7 @@
     "react-scripts": "link:../node_modules/react-scripts",
     "prismjs": "link:../node_modules/prismjs/prism.js",
     "@types/prismjs": "link:../node_modules/@types/prismjs/index.s.ts",
-    "react-coder": "link:.."
+    "react-coder": "link:../dist"
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

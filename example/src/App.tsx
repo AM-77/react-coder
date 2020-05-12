@@ -4,6 +4,7 @@ import React from 'react'
 // import 'react-coder/dist/index.css'
 
 import Coder from './Coder'
+import "prismjs/themes/prism-nord.css";
 
 const App = () => {
   return <div className="container">
