@@ -8,7 +8,8 @@ interface IProps {
 }
 
 interface IState { 
-  height: string 
+  height: string,
+  code: string
 }
 
 export default class CodeEditor extends Component<IProps, IState> {
@@ -17,9 +18,10 @@ export default class CodeEditor extends Component<IProps, IState> {
 
   constructor(props: IProps){
     super(props)
-    
+    const { code } = this.props
     this.state = { 
-      height: "auto" 
+      height: "auto",
+      code
     }
 
     this.textareaRef = React.createRef<HTMLTextAreaElement> ()
@@ -28,20 +30,16 @@ export default class CodeEditor extends Component<IProps, IState> {
   onChange = (e: React.ChangeEvent<HTMLTextAreaElement>):void => {
     const { onCodeChange } = this.props
     let value = e.target.value
+    this.setState({code: value})
     onCodeChange(value)
   }
 
   componentDidMount ():void {
-    const { readOnly } = this.props
-    if (this.textareaRef.current ) {
-      this.textareaRef.current.readOnly = readOnly
-    }
-
     this.updateTextareaHeight()
   }
 
   componentDidUpdate (prevProps: IProps):void {
-    if (this.textareaRef.current && this.props !== prevProps) {
+    if (this.props !== prevProps) {
       this.updateTextareaHeight()
     }
   }
@@ -55,14 +53,21 @@ export default class CodeEditor extends Component<IProps, IState> {
     return height
   }
 
+  onKeyDown = (e: React.KeyboardEvent) => {
+    const { readOnly } = this.props
+    if (readOnly) { 
+      e.preventDefault() 
+    }
+  }
+
   updateTextareaHeight = ():void => this.setState({ height : `0px`}, () => { this.setState({ height : `${this.getTextareaHeight()}px`}) })
   
   render() {
-    const { code, fontSize } = this.props
-    const { height } = this.state
+    const { fontSize } = this.props
+    const { height, code } = this.state
     return (<React.Fragment>
       <pre className="language-disguise" style={{ height }}></pre>
-      <textarea defaultValue={code} onChange={this.onChange} ref={this.textareaRef} style={{ height, fontSize }}  placeholder='Start coding...' ></textarea>
+      <textarea spellCheck={false} value={code} onKeyDown={this.onKeyDown} onChange={this.onChange} ref={this.textareaRef} style={{ height, fontSize }}  placeholder='Start coding...' ></textarea>
     </React.Fragment>)
   }
 }
