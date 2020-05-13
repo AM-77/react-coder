@@ -25,23 +25,24 @@ export default class CodeEditor extends Component<IProps, IState> {
     this.textareaRef = React.createRef<HTMLTextAreaElement> ()
   }
 
-  onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  onChange = (e: React.ChangeEvent<HTMLTextAreaElement>):void => {
     const { onCodeChange } = this.props
     let value = e.target.value
     onCodeChange(value)
   }
 
-  componentDidMount () {
+  componentDidMount ():void {
     const { readOnly } = this.props
     if (this.textareaRef.current ) {
       this.textareaRef.current.readOnly = readOnly
     }
-    this.setState({ height : `${this.getTextareaHeight()}px`})
+
+    this.updateTextareaHeight()
   }
 
-  componentDidUpdate (prevProps: IProps) {
+  componentDidUpdate (prevProps: IProps):void {
     if (this.textareaRef.current && this.props !== prevProps) {
-      this.setState({ height : `0px`}, () => { this.setState({ height : `${this.getTextareaHeight()}px`}) })
+      this.updateTextareaHeight()
     }
   }
 
@@ -54,6 +55,8 @@ export default class CodeEditor extends Component<IProps, IState> {
     return height
   }
 
+  updateTextareaHeight = ():void => this.setState({ height : `0px`}, () => { this.setState({ height : `${this.getTextareaHeight()}px`}) })
+  
   render() {
     const { code, fontSize } = this.props
     const { height } = this.state
