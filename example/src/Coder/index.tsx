@@ -1,22 +1,39 @@
 import React from "react"
 import Highliter from "./Highliter";
+import CodeEditor from "./CodeEditor";
 
-const code = `
-const foo = 'foo';
-const bar = 'bar';
-console.log(foo + bar);
-`.trim()
+interface IProps { 
+  code: string,
+  fontSize?: number
+}
 
-export default class index extends React.Component {
+interface IState { code: string }
+
+export default class index extends React.Component<IProps, IState> {
+  
+  constructor(props: IProps) { 
+    super(props)
+    const { code } = this.props
+    this.state = { code }
+  }
+
+  onCodeChange = (code: string) => this.setState({ code })
   
   render() {
-    
-    return (<div className="container">
-      <div className="numbers">
+    const { code } = this.state
+    const { fontSize } = this.props
+    return (<div className="coder-container">
 
+      <div className="code-editor-container">
+        <CodeEditor code={code} onCodeChange={this.onCodeChange}/>
       </div>
-      <div className="code">
-        <Highliter code={code} />
+      <div className="hignliter-container">
+        <Highliter 
+          code={code}
+          language="js"
+          lineNumbers={true} 
+          fontSize={fontSize || 15} 
+        />
       </div>
     </div>)
   }
