@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-
 interface IProps {
   readOnly: boolean,
+  lineNumbers: boolean,
   fontSize: number,
   code: string,
   onCodeChange: (code: string) => void 
@@ -9,6 +9,7 @@ interface IProps {
 
 interface IState { 
   height: string,
+  paddingLeft: string,
   code: string
 }
 
@@ -20,7 +21,8 @@ export default class CodeEditor extends Component<IProps, IState> {
     super(props)
     const { code } = this.props
     this.state = { 
-      height: "auto",
+      height: "100%",
+      paddingLeft: "1em",
       code
     }
 
@@ -36,6 +38,8 @@ export default class CodeEditor extends Component<IProps, IState> {
 
   componentDidMount ():void {
     this.updateTextareaHeight()
+    const { lineNumbers } = this.props
+    if (lineNumbers) this.setState({paddingLeft: "3.8em"})
   }
 
   componentDidUpdate (prevProps: IProps):void {
@@ -53,7 +57,7 @@ export default class CodeEditor extends Component<IProps, IState> {
     return height
   }
 
-  onKeyDown = (e: React.KeyboardEvent) => {
+  onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const { readOnly, onCodeChange } = this.props
     if (readOnly) { 
       e.preventDefault() 
@@ -90,10 +94,10 @@ export default class CodeEditor extends Component<IProps, IState> {
   
   render() {
     const { fontSize } = this.props
-    const { height, code } = this.state
+    const { height, paddingLeft, code } = this.state
     return (<React.Fragment>
-      <pre className="language-disguise" style={{ height }}></pre>
-      <textarea spellCheck={false} value={code} onKeyDown={this.onKeyDown} onChange={this.onChange} ref={this.textareaRef} style={{ height, fontSize }}  placeholder='Start coding...' ></textarea>
+      <pre className={"language-disguise"} style={{ height, display: "block", position: "absolute", width: "100%", margin: "0", boxSizing: "border-box" }}></pre>
+      <textarea spellCheck={false} value={code} onKeyDown={this.onKeyDown} onChange={this.onChange} ref={this.textareaRef} style={{ height, fontSize, paddingLeft, position: "absolute", top: "0px", left: "0px", maxWidth: "100%", minWidth: "100%", padding: "1em 0", boxSizing: "border-box", border: "none", color: "#545454", background: "transparent", fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace", textAlign: "left", wordSpacing: "normal", wordBreak: "break-word", wordWrap: "break-word", lineHeight: "1.5", tabSize: "4", hyphens: "none", cursor: "auto", whiteSpace: "pre-wrap", paddingRight: "1em", resize: "none", overflowY: "hidden" }}  placeholder='Start coding...' ></textarea>
     </React.Fragment>)
   }
 }

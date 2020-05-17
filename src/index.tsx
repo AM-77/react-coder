@@ -1,39 +1,51 @@
-import * as React from 'react'
-// import styles from './styles.module.css'
-import Prism from "prismjs"
+import React from 'react'
+import Highliter from './components/Highliter'
+import CodeEditor from './components/CodeEditor'
+import "prismjs/themes/prism-nord.css"
 
-const code = `
-const foo = 'foo';
-const bar = 'bar';
-console.log(foo + bar);
-const foo = 'foo';
-const bar = 'bar';
-console.log(foo + bar);
-const foo = 'foo';
-const bar = 'bar';
-console.log(foo + bar);
-`.trim()
-
-interface IProps {
-  langauge: string
+interface IProps { 
+  code?: string,
+  fontSize?: number,
+  readOnly?: boolean,
+  language?: string,
+  lineNumbers?: boolean
 }
 
-export default class Coder extends React.Component<IProps> {
-  componentDidMount() {
-    // You can call the Prism.js API here
-    // Use setTimeout to push onto callback queue so it runs after the DOM is updated
-    setTimeout(()=>{
-      Prism.highlightAll()
-    }, 10)
+interface IState { code: string }
+
+export default class index extends React.Component<IProps, IState> {
+  
+  constructor(props: IProps) { 
+    super(props)
+    const { code } = this.props
+    this.state = { 
+      code: code || ''
+    }
   }
+
+  onCodeChange = (code: string) => this.setState({ code })
+  
   render() {
-    // const { langauge } = this.props
-    return (
-      <pre className="line-numbers">
-        <code className="langauge-js">
-          {code}
-        </code>
-      </pre>
-    )
+    const { code } = this.state
+    const { fontSize, readOnly, language, lineNumbers } = this.props
+    return (<div style={{ width: "auto", position: "relative"}}>
+    <div style={{ position: "absolute", width: "100%", height: "100%"}}>
+      <CodeEditor 
+        fontSize={fontSize || 13 } 
+        readOnly={readOnly || false} 
+        lineNumbers={lineNumbers || false}
+        code={code} 
+        onCodeChange={this.onCodeChange}
+      />
+    </div>
+    <div style={{ position: "absolute", width: "100%", height: "100%", pointerEvents: "none" }}>
+      <Highliter 
+        code={code}
+        language={ language || 'js'}
+        lineNumbers={lineNumbers || false} 
+        fontSize={fontSize || 13} 
+      />
+    </div>
+  </div>)
   }
 }

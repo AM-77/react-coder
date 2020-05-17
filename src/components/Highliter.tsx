@@ -22,13 +22,27 @@ export default class Highliter extends Component<IProps> {
 
   render() {
     const { code, lineNumbers, language, fontSize = 12 } = this.props
+
+    
     return (
-      <pre className={lineNumbers ? "line-numbers" : ""} style={{ fontSize }}>
-        <code ref={this.ref} className={`language-${language}`}>
+      <pre className={lineNumbers ? "line-numbers" : ""} 
+          style={{ 
+            fontSize, margin: "0", 
+            boxSizing: "border-box", 
+            background: "transparent",
+            whiteSpace: "pre-wrap",
+            wordWrap: "break-word", }}>
+        
+        <code ref={this.ref} style={{ 
+            whiteSpace: "pre-wrap",
+            wordWrap: "break-word"}} 
+            className={`language-${language}`}>
+
           { code } 
+
         </code>
+
       </pre>
     )
   }
-
 }
