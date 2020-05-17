@@ -96,8 +96,20 @@ export default class CodeEditor extends Component<IProps, IState> {
     const { fontSize } = this.props
     const { height, paddingLeft, code } = this.state
     return (<React.Fragment>
-      <pre className={"language-disguise"} style={{ height, display: "block", position: "absolute", width: "100%", margin: "0", boxSizing: "border-box" }}></pre>
-      <textarea spellCheck={false} value={code} onKeyDown={this.onKeyDown} onChange={this.onChange} ref={this.textareaRef} style={{ height, fontSize, paddingLeft, position: "absolute", top: "0px", left: "0px", maxWidth: "100%", minWidth: "100%", padding: "1em 0", boxSizing: "border-box", border: "none", color: "#545454", background: "transparent", fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace", textAlign: "left", wordSpacing: "normal", wordBreak: "break-word", wordWrap: "break-word", lineHeight: "1.5", tabSize: "4", hyphens: "none", cursor: "auto", whiteSpace: "pre-wrap", paddingRight: "1em", resize: "none", overflowY: "hidden" }}  placeholder='Start coding...' ></textarea>
+      
+      <pre 
+        className={"language-disguise"} 
+        style={{ display: "block", minHeight: height, height: "100%", width: "100%", position: "absolute", margin: "0", boxSizing: "border-box" }}></pre>
+      
+      <textarea 
+        spellCheck={false} 
+        value={code} 
+        onKeyDown={this.onKeyDown} 
+        onChange={this.onChange} 
+        ref={this.textareaRef} 
+        style={{ height: height, fontSize: fontSize, position: "absolute", top: "0px", left: "0px", maxWidth: "100%", minWidth: "100%", padding: `1em 1em 1em ${paddingLeft}`, boxSizing: "border-box", border: "none", color: "#545454", background: "transparent", fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace", textAlign: "left", wordSpacing: "normal", wordBreak: "break-word", wordWrap: "break-word", lineHeight: "1.5", tabSize: "4", hyphens: "none", cursor: "auto", whiteSpace: "pre-wrap", resize: "none", overflowY: "hidden" }}  
+        placeholder='Start coding...' ></textarea>
+    
     </React.Fragment>)
   }
 }

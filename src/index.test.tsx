@@ -1,7 +1,7 @@
-// import Editor from '.'
+import Editor from '.'
 
-// describe('Editor', () => {
-//   it('is truthy', () => {
-//     expect(Editor).toBeTruthy()
-//   })
-// })
+describe('Editor', () => {
+  it('is truthy', () => {
+    expect(Editor).toBeTruthy()
+  })
+})

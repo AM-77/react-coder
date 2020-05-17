@@ -4,10 +4,11 @@ import CodeEditor from './components/CodeEditor'
 import "prismjs/themes/prism-okaidia.css"
 
 interface IProps { 
-  code?: string,
-  fontSize?: number,
-  readOnly?: boolean,
-  language?: string,
+  onCodeChange?: ( code:string ) => void
+  code?: string
+  fontSize?: number
+  readOnly?: boolean
+  language?: string
   lineNumbers?: boolean
 }
 
@@ -23,12 +24,16 @@ export default class index extends React.Component<IProps, IState> {
     }
   }
 
-  onCodeChange = (code: string) => this.setState({ code })
+  onCodeChange = (code: string) => {
+    const { onCodeChange } = this.props
+    this.setState({ code })
+    if ( onCodeChange ) onCodeChange(code)
+  }
   
   render() {
     const { code } = this.state
     const { fontSize, readOnly, language, lineNumbers } = this.props
-    return (<div style={{ width: "auto", position: "relative"}}>
+    return (<div style={{ width: "auto",  height: "100%", overflowY: "scroll", position: "relative"}}>
     <div style={{ position: "absolute", width: "100%", height: "100%"}}>
       <CodeEditor 
         fontSize={fontSize || 13 } 
