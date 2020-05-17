@@ -35,7 +35,8 @@ export default class Highliter extends Component<IProps> {
         
         <code ref={this.ref} style={{ 
             whiteSpace: "pre-wrap",
-            wordWrap: "break-word"}} 
+            wordWrap: "break-word",
+            fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace" }} 
             className={`language-${language}`}>
 
           { code } 
