@@ -1,7 +1,7 @@
 import React from 'react'
 import Highliter from './components/Highliter'
 import CodeEditor from './components/CodeEditor'
-import "prismjs/themes/prism-nord.css"
+import "prismjs/themes/prism-okaidia.css"
 
 interface IProps { 
   code?: string,
