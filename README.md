@@ -1,4 +1,4 @@
-# react-coder
+# react-coder  (WIP)
 
 > a react code editor
 
@@ -15,12 +15,12 @@ npm install --save react-coder
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-coder'
+import Editor from 'react-coder'
 import 'react-coder/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Editor />
   }
 }
 ```
