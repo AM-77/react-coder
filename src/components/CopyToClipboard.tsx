@@ -35,9 +35,9 @@ export default class CopyToClipboard extends Component<IProps, IState> {
         onClick={() => this.onCopy(code)}
         style={{
           position: "absolute",
-          top: "10px",
+          top: "8px",
           right: "10px",
-          width: "26px",
+          width: "24px",
           height: "26px",
           padding: "1px 3px",
           background: "#fafbfc",
