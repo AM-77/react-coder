@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    ["prismjs", {
+      "languages": ["markup", "css", "javascript", "js", "actionscript", "ada", "aql", "arduino", "asciidoc", "aspnet", "bash", "shell", "basic", "batch", "brainfuck", "bro", "c", "csharp", "dotnet", "cpp", "coffeescript", "cmake", "clojure", "dart", "django", "docker", "dockerfile", "ejs", "elixir", "erlang", "xlsx", "xls", "fsharp", "flow", "fortran", "git", "go", "graphql", "groovy", "haml", "handlebars", "haskell", "http", "ini", "java", "javadoc", "jsdoc", "json", "jsonp", "julia", "kotlin", "latex", "less", "lisp", "emacs", "emacs-lisp", "llvm", "lua", "makefile", "markdown", "md", "matlab", "nasm", "nginx", "nim", "objectivec", "ocaml", "pascal", "perl", "php", "plsql", "powershell", "prolog", "pug", "python", "py", "jsx", "tsx", "regex", "ruby", "rust", "sass", "scss", "scala", "smalltalk", "solidity", "sql", "stylus", "swift", "twig", "typescript", "ts", "vim", "visual-basic", "wasm", "wiki", "xquery", "yaml", "yml"],
+      "plugins": ["line-numbers"],
+      "css": true
+    }]
+  ]
+}
+
+
+
