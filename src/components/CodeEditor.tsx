@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 interface IProps {
   readOnly: boolean,
   lineNumbers: boolean,
@@ -132,7 +133,8 @@ export default class CodeEditor extends Component<IProps, IState> {
           cursor: "auto", 
           whiteSpace: "pre-wrap", 
           resize: "none", 
-          overflowY: "hidden" }}  
+          overflowY: "hidden",
+          outline: "none" }}  
         placeholder='Start coding...' ></textarea>
     
     </React.Fragment>)
