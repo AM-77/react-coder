@@ -107,7 +107,32 @@ export default class CodeEditor extends Component<IProps, IState> {
         onKeyDown={this.onKeyDown} 
         onChange={this.onChange} 
         ref={this.textareaRef} 
-        style={{ height: height, fontSize: fontSize, position: "absolute", top: "0px", left: "0px", maxWidth: "100%", minWidth: "100%", padding: `1em 1em 1em ${paddingLeft}`, boxSizing: "border-box", border: "none", color: "#545454", background: "transparent", fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace", textAlign: "left", wordSpacing: "normal", wordBreak: "break-word", wordWrap: "break-word", lineHeight: "1.5", tabSize: "4", hyphens: "none", cursor: "auto", whiteSpace: "pre-wrap", resize: "none", overflowY: "hidden" }}  
+        style={{ height: height, 
+          fontSize: fontSize, 
+          position: "absolute", 
+          top: "0px", 
+          left: "0px", 
+          maxWidth: "100%", 
+          minWidth: "100%", 
+          padding: `1em 1em 1em ${paddingLeft}`, 
+          boxSizing: "border-box", 
+          border: "none", 
+          color: "#545454", 
+          background: "transparent", 
+          fontFamily: "'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace", 
+          fontWeight: "normal", 
+          textAlign: "left", 
+          wordSpacing: "normal", 
+          wordBreak: "break-word", 
+          wordWrap: "normal",
+          overflowWrap: "normal", 
+          lineHeight: "1.5", 
+          tabSize: "4", 
+          hyphens: "none", 
+          cursor: "auto", 
+          whiteSpace: "pre-wrap", 
+          resize: "none", 
+          overflowY: "hidden" }}  
         placeholder='Start coding...' ></textarea>
     
     </React.Fragment>)
