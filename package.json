@@ -1,6 +1,6 @@
 {
   "name": "react-coder",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a code editor component for react",
   "author": "AM-77",
   "license": "MIT",
@@ -11,6 +11,15 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "react",
+    "reactjs",
+    "coder",
+    "editor",
+    "react-coder",
+    "code-editor",
+    "react-code-editor"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
