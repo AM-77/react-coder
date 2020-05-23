@@ -43,7 +43,7 @@ import Editor from 'react-coder';
 
 ## Available Props:
 
-#### fontSize
+### fontSize
 
 The size of the font, default: 13px
 
@@ -51,7 +51,7 @@ The size of the font, default: 13px
 
 
 
-#### onCodeChange
+### onCodeChange
 
 A code change handler.
 
@@ -59,7 +59,7 @@ A code change handler.
 
 
 
-#### language
+### language
 
 Hightlight the code based on the selected langauge, default: 'js'
 
@@ -67,7 +67,7 @@ Hightlight the code based on the selected langauge, default: 'js'
 
 
 
-#### readOnly
+### readOnly
 
 Edit permission. default: false
 
@@ -75,7 +75,7 @@ Edit permission. default: false
 
 
 
-#### lineNumbers
+### lineNumbers
 
 Display or hide the line numbers. default: false
 
@@ -83,7 +83,7 @@ Display or hide the line numbers. default: false
 
 
 
-#### copy
+### copy
 
 Display or hide the copy to clipboard button. default: false
 
@@ -91,7 +91,7 @@ Display or hide the copy to clipboard button. default: false
 
 
 
-#### code
+### code
 
 The code you want to display, or edit.
 
