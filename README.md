@@ -1,4 +1,4 @@
-# react-coder  (WIP)
+# react-coder 
 
 > a react code editor
 
