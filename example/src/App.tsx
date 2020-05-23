@@ -1,6 +1,7 @@
 import React from 'react'
 import Editor from 'react-coder'
 
+import "./index.css"
 import "./prism-nord.css"
 
 export default function App() {
