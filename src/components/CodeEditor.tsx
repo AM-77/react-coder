@@ -115,7 +115,7 @@ export default class CodeEditor extends Component<IProps, IState> {
           left: "0px", 
           maxWidth: "100%", 
           minWidth: "100%", 
-          padding: `1em 1em 1em ${paddingLeft}`, 
+          padding: `12px 0em 1em ${paddingLeft}`, 
           boxSizing: "border-box", 
           border: "none", 
           color: "#545454", 
