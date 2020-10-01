@@ -2,9 +2,9 @@
 
 # react-coder
 
-> a react code wrapper and editor
+> a lightweight react code wrapper and editor component
 
-[![NPM](https://img.shields.io/npm/v/react-coder.svg)](https://www.npmjs.com/package/react-coder) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-coder.svg)](https://www.npmjs.com/package/react-coder) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/react-coder)
 
 ## Install
 
