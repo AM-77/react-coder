@@ -11,7 +11,7 @@ function onkeylog(line) {
   debug('server onkeylog');	 
   const owner = this[owner_symbol]; 
   if (owner.server)	{
-    owner.server.emit('keylog', line, owner);	
+    owner.server.emit('keylog', line, owner);
   }
 }`
 
@@ -32,6 +32,7 @@ function onkeylog(line) {
   return (
     <div className="container">
       <div className="title"><h1>react-coder</h1></div>
+      <div className="logo"><img src="https://i.imgur.com/ztTYPJI.png" height="200px" alt="react coder's logo"/></div>
       <div className="description">
         <p>a code wrapper & editor component for react</p>
       </div>
